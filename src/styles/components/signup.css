@@ -1,0 +1,51 @@
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.signup-container h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.signup-container label {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.signup-container input[type='tel'] {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.signup-container button[type='submit'] {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.signup-container button[type='submit']:hover {
+    background-color: var(--primary-color-dark);
+}
