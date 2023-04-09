@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuth } from '../../store/auth';
+import {useAuth} from '../../store/auth';
 import styles from '../../styles/app.module.css';
 
 export const Signup = () => {
@@ -16,7 +16,7 @@ export const Signup = () => {
             <h1>Signup</h1>
             <form onSubmit={handleSignup}>
                 <label htmlFor="phone">Phone number:</label>
-                <input type="tel" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <input type="tel" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
                 <button type="submit">Send code</button>
             </form>
         </div>

@@ -12,15 +12,11 @@ function App() {
 
     return (
         <Router>
-            {/* Toujours afficher le composant d'en-tête */}
-            <Header />
+            <Header/>
             <Routes>
-                {/* Afficher la page de connexion si l'utilisateur n'est pas connecté */}
-                <Route path="/login" element={auth.isLoggedIn ? <Navigate to="/" /> : <Login />} />
-                {/* Afficher la page d'inscription si l'utilisateur n'est pas connecté */}
-                <Route path="/signup" element={auth.isLoggedIn ? <Navigate to="/" /> : <Signup />} />
-                {/* Afficher la page d'accueil si l'utilisateur est connecté */}
-                <Route path="/" element={auth.isLoggedIn ? <h1>Home - Logged In</h1> : <Navigate to="/login" />} />
+                <Route path="/login" element={auth.isLoggedIn ? <Navigate to="/"/> : <Login/>}/>
+                <Route path="/signup" element={auth.isLoggedIn ? <Navigate to="/"/> : <Signup/>}/>
+                <Route path="/" element={auth.isLoggedIn ? <h1>Home - Logged In</h1> : <Navigate to="/login"/>}/>
             </Routes>
         </Router>
     );

@@ -6,6 +6,8 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -44,3 +46,4 @@ select:focus {
   outline: none;
   box-shadow: 0 0 0 2px var(--secondary-color);
 }
+

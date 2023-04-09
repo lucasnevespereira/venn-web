@@ -1,4 +1,4 @@
-import { useAuth } from '../../store/auth';
+import {useAuth} from '../../store/auth';
 import React from "react";
 import styles from '../../styles/app.module.css';
 
@@ -16,7 +16,7 @@ export const Login = () => {
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
                 <label htmlFor="phone">Phone number:</label>
-                <input type="tel" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <input type="tel" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
                 <button type="submit">Send code</button>
             </form>
         </div>
