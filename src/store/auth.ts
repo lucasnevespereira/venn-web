@@ -1,23 +1,42 @@
 import {create} from 'zustand';
+import axios from 'axios';
 
 type AuthStore = {
-    loginWithSMS: (phone: string) => void;
-    signupWithSMS: (phone: string) => void;
+    loginWithSMS: (phone: string, code: string) => Promise<void>;
+    signupWithSMS: (phone: string, code: string) => Promise<void>;
     isLoggedIn: boolean;
     logout: () => void;
 };
 
 export const useAuth = create<AuthStore>((set, get) => ({
     isLoggedIn: false,
-    loginWithSMS: (phone: string) => {
-        // call API with Twilio endpoint to send SMS code
-        // if successful, set isAuthenticated to true
-        set({isLoggedIn: true});
+    loginWithSMS: async (phone: string, code: string) => {
+        try {
+            // Call the api endpoint to verify the SMS code
+            const response = await axios.post('/api/auth/login', {phone, code});
+            // If successful, set isLoggedIn to true
+            if (response.status === 200) {
+                set({isLoggedIn: true});
+            } else {
+                console.error(response.data.error);
+            }
+        } catch (error) {
+            console.error(error);
+        }
     },
-    signupWithSMS: (phone: string) => {
-        // call API with Twilio endpoint to send SMS code
-        // if successful, set isAuthenticated to true
-        set({isLoggedIn: true});
+    signupWithSMS: async (phone: string, code: string) => {
+        try {
+            // Call the api endpoint to verify the SMS code
+            const response = await axios.post('/api/auth/signup', {phone, code});
+            // If successful, set isLoggedIn to true
+            if (response.status === 200) {
+                set({isLoggedIn: true});
+            } else {
+                console.error(response.data.error);
+            }
+        } catch (error) {
+            console.error(error);
+        }
     },
     logout: () => {
         set({isLoggedIn: false});
